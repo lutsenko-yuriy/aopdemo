@@ -1,7 +1,7 @@
 package com.iurii.aopdemo
 
-import com.iurii.aopdemo.dao.AccountDAO
-import com.iurii.aopdemo.dao.MembershipDAO
+import com.iurii.aopdemo.dao.account.AccountDAO
+import com.iurii.aopdemo.dao.membership.MembershipDAO
 import com.iurii.aopdemo.entity.Account
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication

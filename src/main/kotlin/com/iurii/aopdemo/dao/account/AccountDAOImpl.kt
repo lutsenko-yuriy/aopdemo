@@ -1,4 +1,4 @@
-package com.iurii.aopdemo.dao
+package com.iurii.aopdemo.dao.account
 
 import com.iurii.aopdemo.entity.Account
 import org.springframework.stereotype.Repository
