@@ -2,6 +2,7 @@ package com.iurii.aopdemo
 
 import com.iurii.aopdemo.dao.AccountDAO
 import com.iurii.aopdemo.dao.MembershipDAO
+import com.iurii.aopdemo.entity.Account
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -13,7 +14,7 @@ class AopdemoApplication {
     @Bean
     fun commandLineRunner(accountDAO: AccountDAO, membershipDAO: MembershipDAO): CommandLineRunner {
         return CommandLineRunner {
-            accountDAO.addAccount()
+            accountDAO.addAccount(account = Account("name", 42))
 
             println("\nNew call")
             accountDAO.addInteger()
