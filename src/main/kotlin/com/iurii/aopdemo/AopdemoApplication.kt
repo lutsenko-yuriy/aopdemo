@@ -14,7 +14,10 @@ class AopdemoApplication {
     @Bean
     fun commandLineRunner(accountDAO: AccountDAO, membershipDAO: MembershipDAO): CommandLineRunner {
         return CommandLineRunner {
-            accountDAO.addAccount(account = Account("name", 42))
+            val account = Account("name", 42)
+
+            println("\nNew call")
+            accountDAO.addAccount(account = account, vip = false)
 
             println("\nNew call")
             accountDAO.addInteger()
@@ -26,13 +29,7 @@ class AopdemoApplication {
             membershipDAO.doSomethingElseWithAccount()
 
             println("\nNew call")
-            membershipDAO.addAccount()
-
-            println("\nNew call")
-            membershipDAO.addAccount()
-
-            println("\nNew call")
-            membershipDAO.addAccount()
+            membershipDAO.addAccount(account = account)
 
             println("\nNew call")
             membershipDAO.addDetails()

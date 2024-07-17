@@ -1,10 +1,11 @@
 package com.iurii.aopdemo.dao
 
+import com.iurii.aopdemo.entity.Account
 import org.springframework.stereotype.Repository
 
 @Repository
 class MembershipDAOImpl : MembershipDAO {
-    override fun addAccount() {
+    override fun addAccount(account: Account) {
         println(javaClass.name + " add account to db")
     }
 
