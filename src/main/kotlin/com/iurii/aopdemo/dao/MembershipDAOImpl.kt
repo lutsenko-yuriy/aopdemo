@@ -11,4 +11,8 @@ class MembershipDAOImpl : MembershipDAO {
     override fun doSomethingElseWithAccount() {
         println(javaClass.name + " do something else with account")
     }
+
+    override fun addDetails() {
+        println(javaClass.name + " add details to db")
+    }
 }

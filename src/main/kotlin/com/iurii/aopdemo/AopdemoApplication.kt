@@ -16,7 +16,7 @@ class AopdemoApplication {
             accountDAO.addAccount()
 
             println("\nNew call")
-            accountDAO.addAccount()
+            accountDAO.addInteger()
 
             println("\nNew call")
             accountDAO.dontAddAccount()
@@ -34,7 +34,7 @@ class AopdemoApplication {
             membershipDAO.addAccount()
 
             println("\nNew call")
-            membershipDAO.doSomethingElseWithAccount()
+            membershipDAO.addDetails()
         }
     }
 }
