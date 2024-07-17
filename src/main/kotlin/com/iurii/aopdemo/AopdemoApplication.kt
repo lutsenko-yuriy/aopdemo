@@ -5,10 +5,12 @@ import com.iurii.aopdemo.dao.MembershipDAO
 import com.iurii.aopdemo.entity.Account
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
 
-@SpringBootApplication
+
+@SpringBootApplication(exclude = [JmxAutoConfiguration::class])
 class AopdemoApplication {
 
     @Bean
