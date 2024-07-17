@@ -15,12 +15,18 @@ class DemoLoggingAspect {
     @Pointcut("execution(* com.iurii.aopdemo.dao.account.*.*(..))")
     fun forDAOPackage() { }
 
+    @Pointcut("execution(* com.iurii.aopdemo.dao.account.*.get*(..))")
+    fun forGettersInPackage() { }
+
+    @Pointcut("execution(* com.iurii.aopdemo.dao.account.*.set*(..))")
+    fun forSettersInPackage() { }
+
     @Before("forDAOPackage()")
     fun beforeAddAccountAdvice() {
         println("=======> Executing @Before advice on addAccount method")
     }
 
-    @Before("forDAOPackage()")
+    @Before("forDAOPackage() && !(forGettersInPackage() || forSettersInPackage())")
     fun performAPIAnalytics() {
         println("=======> Called ${calledTimes.incrementAndGet()} times")
     }

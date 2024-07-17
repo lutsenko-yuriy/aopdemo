@@ -25,6 +25,18 @@ class AopdemoApplication {
             accountDAO.addInteger()
 
             println("\nNew call")
+            accountDAO.name
+
+            println("\nNew call")
+            accountDAO.name = "First Name"
+
+            println("\nNew call")
+            accountDAO.code
+
+            println("\nNew call")
+            accountDAO.code = "Code"
+
+            println("\nNew call")
             accountDAO.dontAddAccount()
 
             println("\nNew call")
