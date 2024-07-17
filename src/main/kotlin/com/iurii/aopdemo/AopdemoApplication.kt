@@ -1,5 +1,6 @@
 package com.iurii.aopdemo
 
+import com.iurii.aopdemo.dao.AccountDAO
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -9,9 +10,9 @@ import org.springframework.context.annotation.Bean
 class AopdemoApplication {
 
     @Bean
-    fun commandLineRunner(): CommandLineRunner {
+    fun commandLineRunner(accountDAO: AccountDAO): CommandLineRunner {
         return CommandLineRunner {
-            println("Hello World")
+            accountDAO.addAccount()
         }
     }
 }
