@@ -3,6 +3,7 @@ package com.iurii.aopdemo
 import com.iurii.aopdemo.dao.account.AccountDAO
 import com.iurii.aopdemo.dao.membership.MembershipDAO
 import com.iurii.aopdemo.entity.Account
+import com.iurii.aopdemo.service.TrafficFortuneService
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration
@@ -14,7 +15,11 @@ import org.springframework.context.annotation.Bean
 class AopdemoApplication {
 
     @Bean
-    fun commandLineRunner(accountDAO: AccountDAO, membershipDAO: MembershipDAO): CommandLineRunner {
+    fun commandLineRunner(
+        accountDAO: AccountDAO,
+        membershipDAO: MembershipDAO,
+        trafficFortuneService: TrafficFortuneService
+    ): CommandLineRunner {
         return CommandLineRunner {
             val account = Account("name", 42)
 
@@ -57,6 +62,9 @@ class AopdemoApplication {
             } catch (e: Exception) {
                 println("Exception caught: ${e.message}")
             }
+
+            println("\nNew call")
+            println(trafficFortuneService.getFortune())
         }
     }
 }
