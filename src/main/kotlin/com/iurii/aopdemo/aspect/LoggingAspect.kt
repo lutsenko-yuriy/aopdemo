@@ -32,6 +32,10 @@ class LoggingAspect {
         val name = joinPoint.signature.toShortString()
         println("=========> Executing @After advice on $name method")
         println("=========> Result is $result")
+
+        for (account in result) {
+            account.name = account.name.uppercase()
+        }
     }
 
 }
