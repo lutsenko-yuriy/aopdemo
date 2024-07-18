@@ -9,4 +9,5 @@ interface AccountDAO {
     fun dontAddAccount()
     fun addInteger(): Int
     fun findAccounts(): List<Account>
+    fun findAccountsWithException(): List<Account>
 }

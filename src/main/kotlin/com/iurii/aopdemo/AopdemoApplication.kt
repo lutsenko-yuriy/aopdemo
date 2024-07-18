@@ -50,6 +50,13 @@ class AopdemoApplication {
 
             println("\nNew call")
             println(accountDAO.findAccounts())
+
+            println("\nNew call")
+            try {
+                println(accountDAO.findAccountsWithException())
+            } catch (e: Exception) {
+                println("Exception caught: ${e.message}")
+            }
         }
     }
 }

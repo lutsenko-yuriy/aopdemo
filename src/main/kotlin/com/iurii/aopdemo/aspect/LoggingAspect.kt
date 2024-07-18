@@ -27,7 +27,7 @@ class LoggingAspect {
         }
     }
 
-    @AfterReturning(pointcut = "execution(* com.iurii.aopdemo.dao.account.AccountDAO.findAccounts(..))", returning = "result")
+    @AfterReturning(pointcut = "execution(* com.iurii.aopdemo.dao.account.AccountDAO.findAccounts*(..))", returning = "result")
     fun afterReturningFindAccountsAdvice(joinPoint: JoinPoint, result: List<Account>) {
         val name = joinPoint.signature.toShortString()
         println("=========> Executing @After advice on $name method")

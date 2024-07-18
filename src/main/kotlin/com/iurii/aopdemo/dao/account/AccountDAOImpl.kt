@@ -44,4 +44,9 @@ class AccountDAOImpl : AccountDAO {
             Account("Name $it", it)
         }
     }
+
+    @Throws(Exception::class)
+    override fun findAccountsWithException(): List<Account> {
+        throw Exception("Test exception")
+    }
 }
