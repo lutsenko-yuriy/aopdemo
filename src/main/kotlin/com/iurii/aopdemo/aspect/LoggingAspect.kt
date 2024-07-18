@@ -63,6 +63,20 @@ class LoggingAspect {
 
     @Around("execution(* com.iurii.aopdemo.service.*.getFortune(..))")
     fun aroundGetObject(proceedingJoinPoint: ProceedingJoinPoint): Any? {
+        val name = proceedingJoinPoint.signature.toShortString()
+        println("=========> Advising on $name method in Around advice")
+
+        val begin = System.currentTimeMillis()
+
+        // This call is necessary if you need a result
+        val result = proceedingJoinPoint.proceed()
+
+        val end = System.currentTimeMillis()
+
+        val duration = end - begin
+
+        println("=======> It took $duration ms for $name to return $result")
+
         return null
     }
 }
