@@ -2,6 +2,7 @@ package com.iurii.aopdemo.aspect
 
 import com.iurii.aopdemo.entity.Account
 import org.aspectj.lang.JoinPoint
+import org.aspectj.lang.annotation.After
 import org.aspectj.lang.annotation.AfterReturning
 import org.aspectj.lang.annotation.AfterThrowing
 import org.aspectj.lang.annotation.Aspect
@@ -50,4 +51,10 @@ class LoggingAspect {
         println("=========> Advising on $name method which throws an exception with a message \"${exception.message}\"")
     }
 
+    @After("forFindAccountsMethods()")
+    fun afterFindAccountsMethods(joinPoint: JoinPoint) {
+        val name = joinPoint.signature.toShortString()
+
+        println("=========> Advising on $name method. It will be here whatever the outcome of the method.")
+    }
 }
