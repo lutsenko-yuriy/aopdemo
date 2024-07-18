@@ -8,4 +8,5 @@ interface AccountDAO {
     fun addAccount(account: Account, vip: Boolean)
     fun dontAddAccount()
     fun addInteger(): Int
+    fun findAccounts(): List<Account>
 }

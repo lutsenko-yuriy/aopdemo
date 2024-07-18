@@ -38,4 +38,10 @@ class AccountDAOImpl : AccountDAO {
         println(javaClass.name + " add 42 from db")
         return 42
     }
+
+    override fun findAccounts(): List<Account> {
+        return (1..10).map {
+            Account("Name $it", it)
+        }
+    }
 }

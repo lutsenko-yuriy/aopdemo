@@ -47,6 +47,9 @@ class AopdemoApplication {
 
             println("\nNew call")
             membershipDAO.addDetails()
+
+            println("\nNew call")
+            println(accountDAO.findAccounts())
         }
     }
 }
