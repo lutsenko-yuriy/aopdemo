@@ -2,9 +2,11 @@ package com.iurii.aopdemo.aspect
 
 import com.iurii.aopdemo.entity.Account
 import org.aspectj.lang.JoinPoint
+import org.aspectj.lang.ProceedingJoinPoint
 import org.aspectj.lang.annotation.After
 import org.aspectj.lang.annotation.AfterReturning
 import org.aspectj.lang.annotation.AfterThrowing
+import org.aspectj.lang.annotation.Around
 import org.aspectj.lang.annotation.Aspect
 import org.aspectj.lang.annotation.Before
 import org.aspectj.lang.annotation.Pointcut
@@ -31,7 +33,8 @@ class LoggingAspect {
     }
 
     @Pointcut("execution(* com.iurii.aopdemo.dao.account.AccountDAO.findAccounts*(..))")
-    fun forFindAccountsMethods() { }
+    fun forFindAccountsMethods() {
+    }
 
     @AfterReturning(pointcut = "forFindAccountsMethods()", returning = "result")
     fun afterReturningFindAccountsAdvice(joinPoint: JoinPoint, result: List<Account>) {
@@ -56,5 +59,10 @@ class LoggingAspect {
         val name = joinPoint.signature.toShortString()
 
         println("=========> Advising on $name method. It will be here whatever the outcome of the method.")
+    }
+
+    @Around("execution(* com.iurii.aopdemo.service.*.getFortune(..))")
+    fun aroundGetObject(proceedingJoinPoint: ProceedingJoinPoint): Any? {
+        return null
     }
 }
