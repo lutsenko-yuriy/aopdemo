@@ -61,7 +61,7 @@ class LoggingAspect {
         println("=========> Advising on $name method. It will be here whatever the outcome of the method.")
     }
 
-    @Around("execution(* com.iurii.aopdemo.service.*.getFortune(..))")
+    @Around("execution(* com.iurii.aopdemo.service.*.getFortune*(..))")
     fun aroundGetObject(proceedingJoinPoint: ProceedingJoinPoint): Any? {
         val name = proceedingJoinPoint.signature.toShortString()
         println("=========> Advising on $name method in Around advice")
@@ -69,7 +69,12 @@ class LoggingAspect {
         val begin = System.currentTimeMillis()
 
         // This call is necessary if you need a result
-        val result = proceedingJoinPoint.proceed()
+        val result = try {
+            proceedingJoinPoint.proceed()
+        } catch (e: Exception) {
+            println(e.message)
+            "Major accident. Resolvable, though!"
+        }
 
         val end = System.currentTimeMillis()
 
@@ -77,6 +82,6 @@ class LoggingAspect {
 
         println("=======> It took $duration ms for $name to return $result")
 
-        return null
+        return result
     }
 }

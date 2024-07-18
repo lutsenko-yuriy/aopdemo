@@ -64,7 +64,10 @@ class AopdemoApplication {
             }
 
             println("\nNew call")
-            println(trafficFortuneService.getFortune())
+            println(trafficFortuneService.getFortune(false))
+
+            println("\nNew call")
+            println(trafficFortuneService.getFortune(true))
         }
     }
 }

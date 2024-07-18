@@ -5,7 +5,11 @@ import java.util.concurrent.TimeUnit
 
 @Service
 class TrafficFortuneServiceImpl : TrafficFortuneService {
-    override fun getFortune(): String {
+    override fun getFortune(fail: Boolean): String {
+        if (fail) {
+            throw RuntimeException("Major accident!")
+        }
+
         try {
             TimeUnit.SECONDS.sleep(5)
         } catch (e: InterruptedException) {
