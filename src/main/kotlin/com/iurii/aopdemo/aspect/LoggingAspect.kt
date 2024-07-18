@@ -73,7 +73,7 @@ class LoggingAspect {
             proceedingJoinPoint.proceed()
         } catch (e: Exception) {
             println(e.message)
-            "Major accident. Resolvable, though!"
+            throw e
         }
 
         val end = System.currentTimeMillis()

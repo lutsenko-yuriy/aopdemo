@@ -67,7 +67,11 @@ class AopdemoApplication {
             println(trafficFortuneService.getFortune(false))
 
             println("\nNew call")
-            println(trafficFortuneService.getFortune(true))
+            try {
+                println(trafficFortuneService.getFortune(true))
+            } catch (e: Exception) {
+                println("Exception caught: ${e.message}")
+            }
         }
     }
 }
